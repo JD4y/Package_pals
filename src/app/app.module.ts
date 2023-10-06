@@ -22,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { ProfileComponent } from './components/shared/profile/profile.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -39,6 +40,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     NoopAnimationsModule,
     MatTabsModule,
+    MatToolbarModule,
     MatIconModule,
     MatMenuModule,
     MatListModule,

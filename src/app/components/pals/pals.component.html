@@ -1,11 +1,13 @@
-<mat-card class="card">
-  <mat-card-content>
-    <button routerLink="/register-parcel" mat-raised-button>Return</button>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="card">
-  <mat-card-content>
-    <button mat-raised-button>Receive</button>
-  </mat-card-content>
-</mat-card>
+<div class="pals-container">
+  <mat-list class="vertical-center">
+    <mat-list-item>
+      <button routerLink="/register-parcel" color="primary" mat-raised-button>
+        Return
+      </button>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item class="mat-list-item">
+      <button mat-raised-button>Receive</button>
+    </mat-list-item>
+  </mat-list>
+</div>
