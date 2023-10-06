@@ -41,7 +41,7 @@ export class GoogleMetricsService {
     return degrees * (Math.PI / 180);
   }
 
-  public openGoogleMaps(startLon: number, startLat: number, targetLon: number, targetLat: number) {
+  public openGoogleMaps(origin: string, target: string) {
      const httpOptions = {
        headers: new HttpHeaders({
          'Access-Control-Allow-Origin': '*',
@@ -49,9 +49,9 @@ export class GoogleMetricsService {
          'Access-Control-Allow-Headers': 'Origin'
        })
      }
-    // this.httpClient.get(this.apiUrl + '?origin=' + startLon + ', ' + startLat + '&destination=' + targetLon + ', ' + targetLat + '&key=' + environment.googleMapsKey)
-    //   .subscribe(x => console.log(x));
-    this.httpClient.get('http://localhost:4200/google/maps/api/directions/json?destination=Montreal&origin=Toronto&key=' + environment.googleMapsKey, httpOptions).subscribe(x => console.log(x));
+
+
+    return this.httpClient.get('http://localhost:4200/google/maps/api/directions/json?destination=' + target + '&origin=' + origin + '&key=' + environment.googleMapsKey, httpOptions);
   }
 
 }
