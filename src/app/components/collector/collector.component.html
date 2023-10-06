@@ -1,37 +1,29 @@
-<mat-list *ngIf="activeJobs.length"
-          role="list"
-          class="centered-list">
-    <div mat-subheader>Active jobs</div>
-    <mat-card *ngFor="let job of activeJobs"
-              class="card-active"
-              style="width: 80%;">
-        <mat-card-header>
-            <mat-card-title>#{{job.id}} Job | {{job.time | date: 'h:mm'}} | {{job.payment}}€ |
-                {{job.distance}}km</mat-card-title>
-            <mat-card-subtitle>5 parcels (3x S, 2x M)</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-            <button (click)="displayMap()"
-                    mat-raised-button>Open map</button>
-        </mat-card-actions>
-    </mat-card>
-</mat-list>
+<app-active-job
+  *ngIf="activeJobs.length != 0"
+  [activeJobs]="activeJobs"
+></app-active-job>
 
-<mat-list role="list"
-          class="centered-list">
-    <div mat-subheader>New jobs</div>
-    <mat-card *ngFor="let job of newJobs"
-              class="card"
-              style="width: 80%;">
-        <mat-card-header>
-            <mat-card-title>#{{job.id}} Job | {{job.time | date: 'h:mm'}} | {{job.payment}}€ |
-                {{job.distance}}km</mat-card-title>
-            <mat-card-subtitle>5 parcels (3x S, 2x M)</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions>
-            <button [disabled]="activeJobs.length !== 0"
-                    (click)="takeJob(job)"
-                    mat-raised-button>Take it!</button>
-        </mat-card-actions>
-    </mat-card>
+<mat-list role="list" class="centered-list" *ngIf="activeJobs.length == 0">
+  <div mat-subheader>Open jobs</div>
+  <mat-card *ngFor="let job of newJobs" class="card" style="width: 80%">
+    <mat-card-header>
+      <mat-card-subtitle>#{{ job.id }} Job </mat-card-subtitle>
+      <mat-card-title>
+        {{ job.time | date : "h:mm" }} | {{ job.payment }}€ |
+        {{ job.distance }}km
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>5 parcels (3x S, 2x M)</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        [disabled]="activeJobs.length !== 0"
+        (click)="takeJob(job)"
+        mat-raised-button
+      >
+        Take it!
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </mat-list>
