@@ -11,6 +11,10 @@ import { ReceiverComponent } from './components/receiver/receiver.component';
 import { CollectorComponent } from './components/collector/collector.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { HistoryComponent } from './components/shared/history/history.component';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,10 @@ import { HistoryComponent } from './components/shared/history/history.component'
     NoopAnimationsModule,
     MatTabsModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatListModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
