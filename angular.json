@@ -76,7 +76,8 @@
               "browserTarget": "Package_pals:build:production"
             },
             "development": {
-              "browserTarget": "Package_pals:build:development"
+              "browserTarget": "Package_pals:build:development",
+              "proxyConfig": "src/proxy.conf.json"
               
             }
           },

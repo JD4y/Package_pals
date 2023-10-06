@@ -2,32 +2,13 @@ import json
 
 from dijkstar import Graph, find_path
 import numpy as np
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, HTTPException, Query
+from typing import Optional
+
 app = FastAPI()
 
 # Create a graph
 graph = Graph()
-
-
-def data_loader():
-    # Add edges (nodes, nodes, edge_weight)
-    # Weights are distance, and incentive.
-    edges = [
-        (1, 2, 10, 50),
-        (2, 3, 125, 10),
-        (3, 4, 108, 0),
-        (1, 3, 150, 6),
-        (1, 4, 200, 0),
-        (2, 4, 175, 0),
-        (2, 1, 120, 7),
-        (3, 1, 140, 5),
-        (3, 2, 130, 8),
-        (4, 1, 100, 4),
-        (4, 2, 115, 6)
-    ]
-
-    return edges
-
 
 # Initialize a dictionary to store all the data
 all_data = {}
@@ -63,10 +44,10 @@ def normalize_edge(edges):
     return normalized_edges
 
 
-def graph_generator(edges):
+def graph_generator(edges, distanceWeight, incentiveWeight):
     for edge in normalize_edge(edges):
-        node1, node2, value1, value2 = edge
-        aggregated_value = model(value1, value2)
+        node1, node2, distance, incentive = edge
+        aggregated_value = model(distance, incentive, distanceWeight, incentiveWeight)
         graph.add_edge(node1, node2, aggregated_value)
     return graph
 
@@ -106,14 +87,13 @@ def calculate_total_effort(path, edges):
     return total_efforts
 
 
-def model(distance, incentive, distanceWeight = 0.5, incentiveWeight = 0.5):
+def model(distance, incentive, distanceWeight, incentiveWeight):
   # The weights define how much the impact of a specific edge value is. This might be influenced by a user input.
   return distance * distanceWeight + (1 - incentive) * incentiveWeight
 
 
-def generate_jobs(distanceWeight=0.5, incentiveWeight=0.5):
-    edges = data_loader()
-    graph = graph_generator(edges)
+def generate_jobs(edges, distanceWeight=0.5, incentiveWeight=0.5):
+    graph = graph_generator(edges, distanceWeight, incentiveWeight)
 
     # Find a path from node 1 to node 4
     start_node = 1
@@ -140,13 +120,20 @@ def generate_jobs(distanceWeight=0.5, incentiveWeight=0.5):
     with open(output_file, 'w') as json_file:
         json.dump(all_data, json_file, indent=4)
 
-
-@app.get("/jobs")
-def get_jobs():
-  generate_jobs()
-  return all_data
-
-
+# Example Usage
+# http://0.0.0.0:8000/getjobs?edges=%5B%5B1%2C2%2C10%2C50%5D%2C%5B2%2C3%2C125%2C10%5D%2C%5B3%2C4%2C108%2C0%5D%2C%5B1%2C3%2C150%2C6%5D%2C%5B1%2C4%2C200%2C0%5D%2C%5B2%2C4%2C175%2C0%5D%2C%5B2%2C1%2C120%2C7%5D%2C%5B3%2C1%2C140%2C5%5D%2C%5B3%2C2%2C130%2C8%5D%2C%5B4%2C1%2C100%2C4%5D%2C%5B4%2C2%2C115%2C6%5D%5D&distanceWeight=0.5&incentiveWeight=0.3
+@app.get("/getjobs")
+async def getjobs(
+    edges: str = Query(...),
+    distanceWeight: Optional[float] = Query(0.5),
+    incentiveWeight: Optional[float] = Query(0.5)
+):
+    try:
+        edges = json.loads(edges)
+        generate_jobs(edges, distanceWeight, incentiveWeight)
+        return all_data  # Return the generated data as the API response
+    except json.JSONDecodeError:
+        raise HTTPException(status_code=400, detail="Invalid JSON in request body")
 
 if __name__ == '__main__':
   generate_jobs()
