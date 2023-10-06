@@ -42,16 +42,16 @@ export class GoogleMetricsService {
   }
 
   public openGoogleMaps(startLon: number, startLat: number, targetLon: number, targetLat: number) {
-    // const httpOptions = {
-    //   headers: new HttpHeaders({
-    //     'Access-Control-Allow-Origin': '*',
-    //     'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-    //     'Access-Control-Allow-Headers': 'Origin'
-    //   })
-    // }
+     const httpOptions = {
+       headers: new HttpHeaders({
+         'Access-Control-Allow-Origin': '*',
+         'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+         'Access-Control-Allow-Headers': 'Origin'
+       })
+     }
     // this.httpClient.get(this.apiUrl + '?origin=' + startLon + ', ' + startLat + '&destination=' + targetLon + ', ' + targetLat + '&key=' + environment.googleMapsKey)
     //   .subscribe(x => console.log(x));
-    this.httpClient.get('https://maps.googleapis.com/maps/api/directions/json?destination=Montreal&origin=Toronto&key=' + environment.googleMapsKey).subscribe(x => console.log(x));
+    this.httpClient.get('http://localhost:4200/google/maps/api/directions/json?destination=Montreal&origin=Toronto&key=' + environment.googleMapsKey, httpOptions).subscribe(x => console.log(x));
   }
 
 }
