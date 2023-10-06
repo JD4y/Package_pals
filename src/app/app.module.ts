@@ -5,19 +5,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
-import { RevicerComponent } from './revicer/revicer.component';
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { ReceiverComponent } from './components/receiver/receiver.component';
+import { CollectorComponent } from './components/collector/collector.component';
+import { HeaderComponent } from './components/shared/header/header.component';
+import { HistoryComponent } from './components/shared/history/history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RevicerComponent
+    ReceiverComponent,
+    CollectorComponent,
+    HeaderComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
