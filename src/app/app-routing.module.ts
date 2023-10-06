@@ -8,10 +8,11 @@ import { ProfileComponent } from './components/shared/profile/profile.component'
 
 const routes: Routes = [
   { path: 'pals', component: PalsComponent },
+  { path: '', redirectTo: '/pals', pathMatch: 'full' },
   { path: 'collector', component: CollectorComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'register-parcel', component: RegisterParcelComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({

@@ -15,6 +15,9 @@ export class RegisterParcelComponent {
   courierServices: CourierServices[] = [
     { value: 'dhl', viewValue: 'DHL' },
     { value: 'ups', viewValue: 'UPS' },
+    { value: 'dpd', viewValue: 'DPD' },
+    { value: 'hermes', viewValue: 'Hermes' },
+    { value: 'gls', viewValue: 'GLS' },
   ];
 
   firstFormGroup = this._formBuilder.group({

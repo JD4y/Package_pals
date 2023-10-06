@@ -22,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { ProfileComponent } from './components/shared/profile/profile.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ProfileComponent } from './components/shared/profile/profile.component'
     AppRoutingModule,
     NoopAnimationsModule,
     MatTabsModule,
+    MatToolbarModule,
     MatIconModule,
     MatMenuModule,
     MatListModule,

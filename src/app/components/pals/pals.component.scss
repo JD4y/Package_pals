@@ -1,13 +1,18 @@
-.card {
-    max-width: 400px;
-    min-height: 40%;
-    margin-bottom: 8px;
+.pals-container{
+    display: flex;
+    margin: auto;
+    padding: 10px;
+    justify-content: center;
+    width: 80vw;
+    height: 80vh;
+    position: relative;
 }
 
-.mat-card-content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 50%;
-}
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
