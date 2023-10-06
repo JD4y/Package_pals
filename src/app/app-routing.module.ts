@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ReceiverComponent } from './components/receiver/receiver.component';
 import { CollectorComponent } from './components/collector/collector.component';
 import { HistoryComponent } from './components/shared/history/history.component';
+import { PalsComponent } from './components/pals/pals.component';
+import { RegisterParcelComponent } from './components/pals/register-parcel/register-parcel.component';
 
 const routes: Routes = [
-  { path: 'receiver', component: ReceiverComponent },
+  { path: 'pals', component: PalsComponent },
   { path: 'collector', component: CollectorComponent },
-  { path: 'history', component: HistoryComponent }
+  { path: 'history', component: HistoryComponent },
+  { path: 'register-parcel', component: RegisterParcelComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

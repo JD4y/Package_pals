@@ -7,22 +7,29 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { ReceiverComponent } from './components/receiver/receiver.component';
 import { CollectorComponent } from './components/collector/collector.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { HistoryComponent } from './components/shared/history/history.component';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { PalsComponent } from './components/pals/pals.component';
+import { RegisterParcelComponent } from './components/pals/register-parcel/register-parcel.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ReceiverComponent,
     CollectorComponent,
     HeaderComponent,
-    HistoryComponent
+    HistoryComponent,
+    PalsComponent,
+    RegisterParcelComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,9 +40,16 @@ import { MatButtonModule } from '@angular/material/button';
     MatMenuModule,
     MatListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatStepperModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
