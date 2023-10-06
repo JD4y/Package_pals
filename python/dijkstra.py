@@ -69,6 +69,7 @@ def calculate_total_earnings(path, edges):
 
     return total_earnings
 
+
 def calculate_total_effort(path, edges):
     total_efforts = 0
 
@@ -88,8 +89,8 @@ def calculate_total_effort(path, edges):
 
 
 def model(distance, incentive, distanceWeight, incentiveWeight):
-  # The weights define how much the impact of a specific edge value is. This might be influenced by a user input.
-  return distance * distanceWeight + (1 - incentive) * incentiveWeight
+    # The weights define how much the impact of a specific edge value is. This might be influenced by a user input.
+    return np.abs((distance * distanceWeight) - (incentive * incentiveWeight))
 
 
 def generate_jobs(edges, distanceWeight=0.5, incentiveWeight=0.5):
@@ -115,10 +116,6 @@ def generate_jobs(edges, distanceWeight=0.5, incentiveWeight=0.5):
         # Store the path information for each run
         to_json(start, end, path, effort, earnings)
 
-        # Save all the data to a single JSON file
-    output_file = "all_path_info.json"
-    with open(output_file, 'w') as json_file:
-        json.dump(all_data, json_file, indent=4)
 
 # Example Usage
 # http://0.0.0.0:8000/getjobs?edges=%5B%5B1%2C2%2C10%2C50%5D%2C%5B2%2C3%2C125%2C10%5D%2C%5B3%2C4%2C108%2C0%5D%2C%5B1%2C3%2C150%2C6%5D%2C%5B1%2C4%2C200%2C0%5D%2C%5B2%2C4%2C175%2C0%5D%2C%5B2%2C1%2C120%2C7%5D%2C%5B3%2C1%2C140%2C5%5D%2C%5B3%2C2%2C130%2C8%5D%2C%5B4%2C1%2C100%2C4%5D%2C%5B4%2C2%2C115%2C6%5D%5D&distanceWeight=0.5&incentiveWeight=0.3
