@@ -1,10 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleMetricsService } from 'src/app/data-services/google-metrics.service';
 import Swal from 'sweetalert2'
 
 export interface Job {
   id: number,
   time: Date,
   payment: number,
+  distance: number
+}
+
+export interface Package {
+  longitude: number,
+  latitude: number,
+  id: number
+}
+
+export interface PackageCalc {
+  startId: number,
+  endId: number,
   distance: number
 }
 
@@ -18,8 +31,9 @@ export class CollectorComponent implements OnInit {
 
   public newJobs: Job[] = [];
   public activeJobs: Job[] = [];
+  public packageToCalc: Package[] = [];
 
-  constructor() { }
+  constructor(public googleService: GoogleMetricsService) { }
 
   ngOnInit(): void {
     this.newJobs = [
@@ -30,6 +44,18 @@ export class CollectorComponent implements OnInit {
       { id: 5, time: new Date('2023-10-07'), payment: 9.22, distance: 55.12 },
       { id: 6, time: new Date('2023-10-08'), payment: 13.98, distance: 2.15 }
     ];
+
+    this.packageToCalc = [
+      { id: 1, longitude: 40.7366, latitude: -73.99062 },
+      { id: 2, longitude: 40.726, latitude: -73.9918 },
+      { id: 3, longitude: 40.7387, latitude: -73.9856 }
+    ];
+
+    this.generateCombinations(this.packageToCalc);
+  }
+
+  public calcDist(pacs: Package[]) {
+    this.googleService
   }
 
   public takeJob(job: Job): void {
@@ -47,6 +73,33 @@ export class CollectorComponent implements OnInit {
         this.newJobs = this.newJobs.filter(x => x.id != job.id);
       }
     })
+  }
+
+  public displayMap(){
+    this.googleService.openGoogleMaps(this.packageToCalc[0].latitude, this.packageToCalc[0].longitude, this.packageToCalc[1].latitude, this.packageToCalc[1].longitude)
+  }
+
+  private generateCombinations(locations: Package[]): PackageCalc[] {
+    const numLocations = locations.length;
+    var result: PackageCalc[] = [];
+
+    for (let i = 0; i < numLocations; i++) {
+      for (let j = i + 1; j < numLocations; j++) {
+        var calc = this.googleService.calculateDistance(
+          locations[i].latitude,
+          locations[i].longitude,
+          locations[j].latitude,
+          locations[j].longitude)
+
+        var packageCalc: PackageCalc = {
+          startId: locations[i].id,
+          endId: locations[j].id,
+          distance: calc
+        }
+        result.push(packageCalc)
+      }
+    }
+    return result;
   }
 
 }
