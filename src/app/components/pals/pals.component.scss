@@ -1,4 +1,4 @@
-.pals-container{
+.pals-container {
     display: flex;
     margin: auto;
     padding: 10px;
@@ -14,5 +14,10 @@
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-  }
+}
+
+mat-list, mat-list-item, button {
+    width: 100%;
+    margin: 16px 0px;
+}
 

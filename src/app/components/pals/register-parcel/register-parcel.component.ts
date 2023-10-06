@@ -27,6 +27,15 @@ export class RegisterParcelComponent {
     secondCtrl: ['', Validators.required],
   });
   isLinear = false;
+  value = 0;
 
   constructor(private _formBuilder: FormBuilder) {}
+
+  formatLabel(value: number): string {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
+
+    return `${value}`;
+  }
 }

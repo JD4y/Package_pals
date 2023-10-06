@@ -23,9 +23,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { ProfileComponent } from './components/shared/profile/profile.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { ActiveJobComponent } from './components/collector/active-job/active-job.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
 
 @NgModule({
   declarations: [
@@ -36,6 +42,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     PalsComponent,
     RegisterParcelComponent,
     ProfileComponent,
+    ActiveJobComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +63,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatTableModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatSliderModule,
     MatTooltipModule
   ],
   providers: [],
