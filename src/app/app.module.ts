@@ -23,7 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { ProfileComponent } from './components/shared/profile/profile.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 @NgModule({
   declarations: [
@@ -53,10 +55,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatStepperModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
 
