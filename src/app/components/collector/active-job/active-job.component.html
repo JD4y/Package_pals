@@ -1,0 +1,31 @@
+<mat-list *ngIf="activeJobs.length" role="list" class="centered-list">
+  <div mat-subheader>Active job</div>
+  <mat-card
+    *ngFor="let job of activeJobs"
+    class="card-active"
+    style="width: 80%"
+  >
+    <mat-card-header>
+      <mat-card-subtitle>#{{ job.id }} Job </mat-card-subtitle>
+      <mat-card-title>
+        {{ job.time | date : "h:mm" }} | {{ job.payment }}€ |
+        {{ job.distance }}km
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <button color="accent" (click)="displayMap()" mat-raised-button>
+        Open map
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</mat-list>
+
+<div class="collector-container">
+  <mat-selection-list #selectedParcels>
+    <mat-list-option *ngFor="let parcel of parcels">
+      <div matListItemTitle>{{ parcel }}</div>
+    </mat-list-option>
+  </mat-selection-list>
+
+  <p>Options selected: {{ selectedParcels.selectedOptions.selected.length }}</p>
+</div>
