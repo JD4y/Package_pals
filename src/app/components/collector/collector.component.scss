@@ -1,4 +1,16 @@
 .card {
     max-width: 400px;
     margin-bottom: 8px;
-  }
+}
+
+.card-active {
+    max-width: 400px;
+    margin-bottom: 8px;
+    background-color: green;
+}
+
+.centered-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
