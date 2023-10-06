@@ -21,6 +21,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
+import { ProfileComponent } from './components/shared/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatRadioModule } from '@angular/material/radio';
     HistoryComponent,
     PalsComponent,
     RegisterParcelComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
