@@ -2,6 +2,8 @@ import json
 
 from dijkstar import Graph, find_path
 import numpy as np
+from fastapi import FastAPI
+app = FastAPI()
 
 # Create a graph
 graph = Graph()
@@ -29,7 +31,6 @@ def data_loader():
 
 # Initialize a dictionary to store all the data
 all_data = {}
-
 
 def to_json(start, end, path, effort, earnings):
     global all_data
@@ -138,6 +139,14 @@ def generate_jobs(distanceWeight=0.5, incentiveWeight=0.5):
     output_file = "all_path_info.json"
     with open(output_file, 'w') as json_file:
         json.dump(all_data, json_file, indent=4)
+
+
+@app.get("/jobs")
+def get_jobs():
+  generate_jobs()
+  return all_data
+
+
 
 if __name__ == '__main__':
   generate_jobs()
