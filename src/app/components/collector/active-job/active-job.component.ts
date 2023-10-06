@@ -23,14 +23,15 @@ export class ActiveJobComponent {
   @Input() activeJobs: Job[] = [];
   @Input() packageToCalc: Package[] = [];
 
-  constructor(public googleService: GoogleMetricsService) {}
+  constructor(public googleService: GoogleMetricsService) { }
 
   public displayMap() {
+    const origin = this.packageToCalc[0].latitude + ', ' + this.packageToCalc[0].longitude;
+    const target = this.packageToCalc[1].latitude + ', ' + this.packageToCalc[1].longitude;
+
     this.googleService.openGoogleMaps(
-      this.packageToCalc[0].latitude,
-      this.packageToCalc[0].longitude,
-      this.packageToCalc[1].latitude,
-      this.packageToCalc[1].longitude
+      origin,
+      target
     );
   }
 
