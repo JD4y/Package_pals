@@ -1,4 +1,5 @@
-<mat-stepper [linear]="isLinear" #stepper>
+<mat-stepper [linear]="isLinear"
+             #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <ng-template matStepLabel>Register your parcel</ng-template>
     <mat-card>
@@ -11,45 +12,51 @@
         <mat-form-field>
           <mat-label>Courier Service</mat-label>
           <mat-select>
-            <mat-option
-              *ngFor="let courierService of courierServices"
-              [value]="courierService.value"
-            >
+            <mat-option *ngFor="let courierService of courierServices"
+                        [value]="courierService.value">
               {{ courierService.viewValue }}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <div class="example-label-container">
-          <label id="example-name-label" class="example-name-label">
+          <label id="example-name-label"
+                 class="example-name-label">
             Days left to return:
           </label>
           <label class="example-value-label"></label>
         </div>
-        <mat-slider
-          min="0"
-          max="100000"
-          step="1000"
-          showTickMarks
-          discrete
-          [displayWith]="formatLabel"
-        >
+        <mat-slider min="0"
+                    max="100000"
+                    step="1000"
+                    showTickMarks
+                    discrete
+                    [displayWith]="formatLabel">
           <input matSliderThumb />
         </mat-slider>
       </mat-card-content>
       <mat-card-content> </mat-card-content>
     </mat-card>
     <div>
-      <button color="accent" mat-raised-button matStepperNext>Next</button>
+      <button color="primary"
+              mat-raised-button
+              matStepperNext>Next</button>
     </div>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Are you done?</ng-template>
+    <p>Packages to send: 1</p>
     <p>Yes, you are now done.</p>
     <div>
-      <button color="accent" mat-raised-button (click)="stepper.reset()">
+      <button mat-raised-button
+              color="primary"
+              matStepperPrevious
+              routerLink="/pals">Finish</button>
+      <button color="accent"
+              mat-raised-button
+              (click)="stepper.reset()">
         I have another one!
       </button>
-      <button mat-raised-button matStepperPrevious>Back</button>
+
     </div>
   </mat-step>
 </mat-stepper>
