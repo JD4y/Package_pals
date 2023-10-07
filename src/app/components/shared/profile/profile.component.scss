@@ -1,100 +1,15 @@
-// Define a class for the rounded shape
-.rounded-image {
-    border-radius: 50%; // Makes it a circle
-    width: 150px;      // Set the width
-    height: 150px;     // Set the height
-  }
-  // Apply the class to the image element
-  img.rounded-circle {
-    @extend .rounded-image;
-  }
-.image {
-  display: flex;
-  justify-content: center; /* Horizontally center */
-  align-items: center;     /* Vertically center */          /* Adjust the container height as needed */
+.example-card {
+  max-width: 400px;
 }
-.text-center {
-    text-align: center; // Center align the text horizontally
-    display: flex;      // Use flexbox for vertical alignment
-    flex-direction: column; // Stack child elements vertically
-    justify-content: center; // Center align vertically
-  }
-  .button-profile {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  .card-stats{
-    margin: 20px;
-  }
-  .button-support{
-    display: flex;
-    justify-content: right;
-    margin: 50px;
-  }
-  .button-mail{
-    display: flex;
-    justify-content: left;
-    margin: 50px;
-  }
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two equally sized columns */
-    grid-template-rows: 1fr; /* One row */
-    gap: 5px; /* Gap between grid items */
-    width: 100vw; /* 100% width of the viewport */
-    height: 10vh; /* 100% height of the viewport */
+
+.example-header-image {
+  background-image: url("../../../../assets/favicon.png");
+  background-size: cover;
 }
-/* Style for grid items */
-.grid-item {
-    padding: 20px;
-    text-align: center;
-}
-.grid-orders {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two equally sized columns */
-    grid-template-rows: 1fr; /* One row */
-    gap: 5px; /* Gap between grid items */
-    width: 100vw; /* 100% width of the viewport */
-    height: 10vh; /* 100% height of the viewport */
-    align-items: center;
-    text-align: center;
-}
-// /* Style for grid items */
-// .order-item {
-//     padding: 5px;
-//     text-align: center;
-//     width: 100%;
-//     height: 100%;
-// }
-.order-item {
-    background-color: #F0F0F0; /* Background color of each item */
-    text-align: center;
-    border-radius: 8px;
-  }
-  /* Style for the buttons within .order-item */
-  .order-item button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
-    padding-left: 60px;
-  }
-.rectangular-button {
-    padding: 30px; /* Adjust padding as needed */
-    color: primary;
-    width: 100vw;
-    border: none;
-    border-radius: 10px; /* Adjust border radius for rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
-}
-.rect {
-    padding-top: 30px;
+
+
+
+
+.mat-icon {
+  margin: 8px  16px  8px  8px;
 }

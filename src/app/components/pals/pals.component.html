@@ -1,46 +1,31 @@
 <div class="pals-container">
-  <mat-card class="card"
-            style="width: 100%; height: 25%;">
-    <span style="font-size: 20px;">
-      <button mat-mini-fab
-              color="primary"
-              aria-label="Example icon button with a home icon">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Hello, Wei Shern!</mat-card-title>
+      <mat-card-subtitle>Continue to save emissions.</mat-card-subtitle>
+      <span class="example-spacer"></span>
+    </mat-card-header>
+    <mat-card-content>
+      <h3>
+        <mat-icon> local_gas_station</mat-icon> <strong>26304</strong> Co2 (g)
+        reduced
+      </h3>
+      <h3>
+        <mat-icon>highlight</mat-icon><strong>5891</strong> Light bulb hours
+      </h3>
+      <h3><mat-icon>nature</mat-icon> <strong>1,2</strong> Tree capture</h3>
+      <h3>
+        <mat-icon>smartphone</mat-icon><strong>3014</strong> Phone charging
+        times
+      </h3>
 
-        <mat-icon>directions_car</mat-icon>
-      </button>Distance saved: 24km</span>
-    <br>
-    <br>
-    <span style="font-size: 20px;">
-      <button mat-mini-fab
-              color="primary">
-        <mat-icon>timer</mat-icon>
-      </button>
-      Hours saved: 8h
-    </span>
-    <br>
-    <br>
-    <span style="font-size: 20px;">
-      <button mat-mini-fab
-              color="primary"
-              aria-label="Example icon button with a home icon">
-        <mat-icon>home</mat-icon>
-      </button>
-      CO2 saving: 11kg
-    </span>
+      <mat-card-actions align="end" class="card-actions">
+        <button routerLink="/register-parcel" color="accent" mat-raised-button>
+          Return
+        </button>
+        <button color="primary" mat-raised-button>Receive</button>
+      </mat-card-actions>
+    </mat-card-content>
   </mat-card>
-  <mat-list class="vertical-center ">
-    <mat-list-item>
-      <button class="button-main"
-              routerLink="/register-parcel"
-              color="accent"
-              mat-raised-button>
-        Return
-      </button>
-    </mat-list-item>
-    <mat-list-item class="mat-list-item">
-      <button class="button-main"
-              color="primary"
-              mat-raised-button>Receive</button>
-    </mat-list-item>
-  </mat-list>
 </div>

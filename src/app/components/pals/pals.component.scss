@@ -1,33 +1,25 @@
-.pals-container {
-    display: flex;
-    margin: auto;
-    padding: 10px;
-    justify-content: center;
-    width: 80vw;
-    height: 80vh;
-    position: relative;
-}
 
-.vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
+mat-divider {
+    margin: 32px 0;
+  }
 
-mat-list,
-mat-list-item {
-    width: 100%;
-    margin: 16px 0px;
-}
+.example-card {
+    height: 600px;
 
-.button-main {
-    width: 100%;
-    margin: 16px 0px;
-}
+  }
+  
+  .example-header-image {
+    background-image: url("../../../../src/assets/profillepic2.jpeg");
+    background-size: cover;
+  }
+  
+  
+  
+  
+  .mat-icon {
+    margin: 8px  16px  8px  8px;
+  }
 
-.card {
-    max-width: 400px;
-    margin-bottom: 8px;
+.card-actions{
+    margin: 128px 0 0 0;
 }
