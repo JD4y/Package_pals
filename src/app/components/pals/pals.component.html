@@ -1,12 +1,46 @@
 <div class="pals-container">
-  <mat-list class="vertical-center">
+  <mat-card class="card"
+            style="width: 100%; height: 25%;">
+    <span style="font-size: 20px;">
+      <button mat-mini-fab
+              color="primary"
+              aria-label="Example icon button with a home icon">
+
+        <mat-icon>directions_car</mat-icon>
+      </button>Distance saved: 24km</span>
+    <br>
+    <br>
+    <span style="font-size: 20px;">
+      <button mat-mini-fab
+              color="primary">
+        <mat-icon>timer</mat-icon>
+      </button>
+      Hours saved: 8h
+    </span>
+    <br>
+    <br>
+    <span style="font-size: 20px;">
+      <button mat-mini-fab
+              color="primary"
+              aria-label="Example icon button with a home icon">
+        <mat-icon>home</mat-icon>
+      </button>
+      CO2 saving: 11kg
+    </span>
+  </mat-card>
+  <mat-list class="vertical-center ">
     <mat-list-item>
-      <button routerLink="/register-parcel" color="accent" mat-raised-button>
+      <button class="button-main"
+              routerLink="/register-parcel"
+              color="accent"
+              mat-raised-button>
         Return
       </button>
     </mat-list-item>
     <mat-list-item class="mat-list-item">
-      <button color="primary" mat-raised-button>Receive</button>
+      <button class="button-main"
+              color="primary"
+              mat-raised-button>Receive</button>
     </mat-list-item>
   </mat-list>
 </div>

@@ -16,8 +16,18 @@
     transform: translateY(-50%);
 }
 
-mat-list, mat-list-item, button {
+mat-list,
+mat-list-item {
     width: 100%;
     margin: 16px 0px;
 }
 
+.button-main {
+    width: 100%;
+    margin: 16px 0px;
+}
+
+.card {
+    max-width: 400px;
+    margin-bottom: 8px;
+}
