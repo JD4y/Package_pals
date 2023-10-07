@@ -35,7 +35,12 @@ export class CollectorComponent {
 
   ngOnInit(): void {
     this.newJobs = [
-      { id: 1, time: new Date('2023-10-06'), payment: 1.45, distance: 12.55 },
+      {
+        id: 1,
+        time: new Date('2023-10-06 1:14'),
+        payment: 1.45,
+        distance: 13,
+      },
       { id: 2, time: new Date('2023-10-07'), payment: 9.22, distance: 55.12 },
       { id: 3, time: new Date('2023-10-08'), payment: 13.98, distance: 2.15 },
       { id: 4, time: new Date('2023-10-06'), payment: 1.45, distance: 12.55 },
@@ -66,18 +71,19 @@ export class CollectorComponent {
         this.activeJobs.push(job);
         this.newJobs = this.newJobs.filter((x) => x.id != job.id);
       }
-    })
+    });
   }
 
-
   public displayMap() {
-    const origin = this.packageToCalc[0].longitude + ', ' + this.packageToCalc[0].latitude;
-    const target = this.packageToCalc[1].longitude + ', ' + this.packageToCalc[1].latitude;
-    const travelMode = 'bicycling'; 
+    const origin =
+      this.packageToCalc[0].longitude + ', ' + this.packageToCalc[0].latitude;
+    const target =
+      this.packageToCalc[1].longitude + ', ' + this.packageToCalc[1].latitude;
+    const travelMode = 'bicycling';
     const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${target}&travelmode=${travelMode}`;
     this.googleService
       .openGoogleMaps(origin, target)
-      .subscribe(x => window.open(googleMapsUrl, '_blank'));
+      .subscribe((x) => window.open(googleMapsUrl, '_blank'));
   }
 
   private generateCombinations(locations: Package[]): PackageCalc[] {
