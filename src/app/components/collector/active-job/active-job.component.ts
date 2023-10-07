@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GoogleMetricsService } from 'src/app/data-services/google-metrics.service';
 
 export interface Job {
@@ -19,20 +19,30 @@ export interface Package {
   templateUrl: './active-job.component.html',
   styleUrls: ['./active-job.component.scss'],
 })
-export class ActiveJobComponent {
+export class ActiveJobComponent implements OnInit {
   @Input() activeJobs: Job[] = [];
   @Input() packageToCalc: Package[] = [];
 
-  constructor(public googleService: GoogleMetricsService) { }
+  constructor(public googleService: GoogleMetricsService) {
+
+  }
+  ngOnInit(): void {
+    this.packageToCalc = [
+      { id: 1, longitude: 40.7366, latitude: -73.99062 },
+      { id: 2, longitude: 40.726, latitude: -73.9918 },
+      { id: 3, longitude: 40.7387, latitude: -73.9856 },
+    ];
+  }
 
   public displayMap() {
-    const origin = this.packageToCalc[0].latitude + ', ' + this.packageToCalc[0].longitude;
-    const target = this.packageToCalc[1].latitude + ', ' + this.packageToCalc[1].longitude;
+    const origin = this.packageToCalc[0].longitude + ', ' + this.packageToCalc[0].latitude;
+    const target = this.packageToCalc[1].longitude + ', ' + this.packageToCalc[1].latitude;
 
-    this.googleService.openGoogleMaps(
-      origin,
-      target
-    );
+    const travelMode = 'bicycling'; 
+    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${target}&travelmode=${travelMode}`;
+    this.googleService
+      .openGoogleMaps(origin, target)
+      .subscribe(x => window.open(googleMapsUrl, '_blank'));
   }
 
   parcels: string[] = [
