@@ -33,6 +33,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { QrComponent } from './components/qr/qr.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
+
 
 @NgModule({
   declarations: [
@@ -73,7 +76,8 @@ import { QrComponent } from './components/qr/qr.component';
     MatNativeDateModule,
     MatCheckboxModule,
     MatSliderModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],
