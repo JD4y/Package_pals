@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { GoogleMetricsService } from 'src/app/data-services/google-metrics.service';
 
 export interface Job {
@@ -23,6 +24,11 @@ export class ActiveJobComponent {
   @Input() activeJobs: Job[] = [];
   @Input() packageToCalc: Package[] = [];
 
+  statuspackage2 = true;
+  statuspackage3 = true;
+  statuspackage4 = true;
+  statuspackage5 = true;
+
   constructor(public googleService: GoogleMetricsService) {}
 
   public displayMap() {
@@ -34,11 +40,18 @@ export class ActiveJobComponent {
     );
   }
 
-  parcels: string[] = [
-    '#1 Package',
-    '#2 Package',
-    '#3 Package',
-    '#4 Package',
-    '#5 Package',
-  ];
+  public enablePackage2() {
+    this.statuspackage2 = !this.statuspackage2;
+  }
+
+  public enablePackage3() {
+    this.statuspackage3 = !this.statuspackage3;
+  }
+
+  public enablePackage4() {
+    this.statuspackage4 = !this.statuspackage4;
+  }
+  public enablePackage5() {
+    this.statuspackage5 = !this.statuspackage5;
+  }
 }
