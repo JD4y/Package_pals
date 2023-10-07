@@ -35,8 +35,8 @@ export class ActiveJobComponent implements OnInit {
   }
 
   public displayMap() {
-    const origin = this.packageToCalc[0].longitude + ', ' + this.packageToCalc[0].latitude;
-    const target = this.packageToCalc[1].longitude + ', ' + this.packageToCalc[1].latitude;
+    const origin = '51.351480051453706, 6.2545763787356625';
+    const target = '51.411071898915864, 6.344627266784644';
 
     const travelMode = 'bicycling';
     const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${target}&travelmode=${travelMode}`;
