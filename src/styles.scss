@@ -10,3 +10,9 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 2px 1px -1px lightgray, 
+                0 1px 1px 0 lightgray, 
+                0 4px 8px 0 lightgray;
+}
