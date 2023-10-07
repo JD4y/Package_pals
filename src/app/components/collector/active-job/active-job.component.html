@@ -22,10 +22,20 @@
 
 <div class="collector-container">
   <mat-selection-list #selectedParcels>
-    <mat-list-option *ngFor="let parcel of parcels">
-      <div matListItemTitle>{{ parcel }}</div>
+    <mat-list-option (click)="enablePackage2()">
+      <div matListItemTitle>#1 Package</div>
+    </mat-list-option>
+    <mat-list-option [disabled]="statuspackage2" (click)="enablePackage3()">
+      <div matListItemTitle>#2 Package</div>
+    </mat-list-option>
+    <mat-list-option [disabled]="statuspackage3" (click)="enablePackage4()">
+      <div matListItemTitle>#3 Package</div>
+    </mat-list-option>
+    <mat-list-option [disabled]="statuspackage4" (click)="enablePackage5()">
+      <div matListItemTitle>#4 Package</div>
+    </mat-list-option>
+    <mat-list-option [disabled]="statuspackage5">
+      <div matListItemTitle>#5 Package</div>
     </mat-list-option>
   </mat-selection-list>
-
-  <p>Options selected: {{ selectedParcels.selectedOptions.selected.length }}</p>
 </div>
