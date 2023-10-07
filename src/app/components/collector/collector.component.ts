@@ -52,10 +52,6 @@ export class CollectorComponent {
     this.generateCombinations(this.packageToCalc);
   }
 
-  public calcDist(pacs: Package[]) {
-    this.googleService;
-  }
-
   public takeJob(job: Job): void {
     Swal.fire({
       title: 'Are you sure?',
@@ -70,7 +66,18 @@ export class CollectorComponent {
         this.activeJobs.push(job);
         this.newJobs = this.newJobs.filter((x) => x.id != job.id);
       }
-    });
+    })
+  }
+
+
+  public displayMap() {
+    const origin = this.packageToCalc[0].longitude + ', ' + this.packageToCalc[0].latitude;
+    const target = this.packageToCalc[1].longitude + ', ' + this.packageToCalc[1].latitude;
+    const travelMode = 'bicycling'; 
+    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${target}&travelmode=${travelMode}`;
+    this.googleService
+      .openGoogleMaps(origin, target)
+      .subscribe(x => window.open(googleMapsUrl, '_blank'));
   }
 
   private generateCombinations(locations: Package[]): PackageCalc[] {
