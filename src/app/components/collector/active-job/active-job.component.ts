@@ -38,11 +38,13 @@ export class ActiveJobComponent implements OnInit {
     const origin = this.packageToCalc[0].longitude + ', ' + this.packageToCalc[0].latitude;
     const target = this.packageToCalc[1].longitude + ', ' + this.packageToCalc[1].latitude;
 
-    const travelMode = 'bicycling'; 
+    const travelMode = 'bicycling';
     const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${target}&travelmode=${travelMode}`;
-    this.googleService
-      .openGoogleMaps(origin, target)
-      .subscribe(x => window.open(googleMapsUrl, '_blank'));
+    const googleMapsAppUrl: string = `comgooglemaps://?saddr=${origin}&daddr=${target}`;
+    window.location.href = googleMapsAppUrl;
+    // this.googleService
+    //   .openGoogleMaps(origin, target)
+    //   .subscribe(x => window.open(googleMapsUrl, '_blank'));
   }
 
   parcels: string[] = [
